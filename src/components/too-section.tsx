@@ -1,30 +1,46 @@
-import React from 'react'
-import { FaArrowRight } from "react-icons/fa";
-import Image from 'next/image';
+"use client"
+import { FaArrowRight } from "react-icons/fa"
+import Image from "next/image"
+import { useMediaQuery } from "@/hooks/use-media-query"
 
 function ToolsSection() {
+  const isMobile = useMediaQuery("(max-width: 768px)")
+
   return (
-    <>
- 
-       <section className='flex items-center justify-between gap-[20px] px-8'>
-
-        {/* 1 */}
-        <div className='flex  flex-col gap-[20px] w-[50%]'>
-            <div className='w-[600px]'>
-            <h1 className='text-[56px] font-bold leading-[100%]'>Get all the tools your team needs</h1>
-            </div>
-            <p>Egestas fringilla aliquam leo, habitasse arcu varius lorem elit. Neque pellentesque donec et tellus ac varius tortor, bibendum. Nulla felis ac turpis at amet. Purus malesuada placerat arcu at enim elit in accumsan.</p>
-            <p className='flex items-center gap-[10px] text-blue-700 text-left'>Check the tools<span><FaArrowRight/></span></p>
+    <section className="w-full max-w-7xl mx-auto px-4 py-6 md:py-8">
+      <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-16">
+        {/* Text Content */}
+        <div className="w-full md:w-1/2 space-y-4 md:space-y-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight max-w-[600px]">
+            {isMobile ? "Enjoy your time working" : "Get all the tools your team needs"}
+          </h2>
+          <p className="text-gray-600 text-sm md:text-base">
+            Egestas fringilla aliquam leo, habitasse arcu varius lorem elit. Neque pellentesque donec et tellus ac
+            varius tortor, bibendum. Nulla felis ac turpis at amet. Purus malesuada placerat arcu at enim elit in
+            accumsan.
+          </p>
+          <div className="pt-2">
+            <a href="#" className="inline-flex items-center gap-[10px] text-blue-700 text-sm md:text-base font-medium">
+              {isMobile ? "See how it helped others" : "Check the tools"}
+              <span>
+                <FaArrowRight />
+              </span>
+            </a>
+          </div>
         </div>
 
-        {/* 2 */}
-        <div className='relative flex gap-[0px] w-full md:w-[37%] h-[300px] md:h-[420px]'>
-            <Image src={"/Right.png"} alt="Woman smiling with hand on chin" fill className='object-cover' priority />
+        {/* Image/Chart */}
+        <div className="w-full md:w-1/2 h-[300px] md:h-[400px] relative">
+          <Image
+            src={isMobile ? "/Right.png" : "/Right.png"}
+            alt="Tools visualization chart"
+            fill
+            className="object-contain"
+            priority
+          />
         </div>
-
-       </section>
-
-    </>
+      </div>
+    </section>
   )
 }
 
