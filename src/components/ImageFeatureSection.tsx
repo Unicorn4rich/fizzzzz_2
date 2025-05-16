@@ -1,11 +1,9 @@
 "use client"
-import { useMediaQuery } from "@/hooks/use-media-query"
 import Image from "next/image"
 import Link from "next/link"
 import { FaArrowRight } from "react-icons/fa"
 
 export const FeatureSection = () => {
-  const isMobile = useMediaQuery("(max-width: 768px)")
 
   return (
     <div className="w-full max-w-7xl mx-auto px-4 py-6 md:py-10">

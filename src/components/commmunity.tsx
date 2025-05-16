@@ -1,10 +1,8 @@
 "use client"
 import { Button } from "@/components/ui/button"
-import { useMediaQuery } from "@/hooks/use-media-query"
 import { ArrowRight } from "lucide-react"
 
 function JoinCommunity() {
-  const isMobile = useMediaQuery("(max-width: 768px)")
 
   return (
     <section className="w-full max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-16">
